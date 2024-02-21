@@ -1,8 +1,6 @@
 package com.estoque.vendas.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,8 +16,13 @@ import java.time.Instant;
 @Setter
 public class Pagamento {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codPagamento;
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant dataPagamento;
     private String formaPagamento;
+
+    @OneToOne(mappedBy = "pagamento")
+    private Venda venda;
 }
