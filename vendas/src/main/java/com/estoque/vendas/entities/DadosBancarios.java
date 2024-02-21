@@ -1,15 +1,13 @@
 package com.estoque.vendas.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "tb_dados_bancarios")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -24,5 +22,8 @@ public class DadosBancarios {
     private String banco;
     private String tipoConta;
     private String pix;
+
+    @OneToOne(mappedBy = "dadosBancarios", cascade = CascadeType.ALL)
+    private Vendedor vendedor;
 
 }

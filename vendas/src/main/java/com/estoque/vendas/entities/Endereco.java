@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table(name = "tb_endereco")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -26,4 +27,7 @@ public class Endereco {
     private String gia;
     private String ddd;
     private String siafi;
+
+    @OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
+    private Vendedor vendedor;
 }

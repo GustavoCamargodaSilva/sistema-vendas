@@ -27,4 +27,12 @@ public class Vendedor {
     private String telefone;
     private UserRole role;
     private Double salarioBase;
+
+    @OneToOne
+    @MapsId
+    private Endereco endereco;
+
+    @OneToOne
+    @MapsId
+    private DadosBancarios dadosBancarios;
 }
