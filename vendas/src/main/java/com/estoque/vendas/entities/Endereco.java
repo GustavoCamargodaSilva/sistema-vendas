@@ -30,4 +30,7 @@ public class Endereco {
 
     @OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
     private Vendedor vendedor;
+
+    @OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
+    private Cliente cliente;
 }

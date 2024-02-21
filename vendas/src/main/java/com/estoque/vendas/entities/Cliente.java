@@ -26,4 +26,9 @@ public class Cliente {
     private String email;
     private String telefone;
     private StatusCliente status;
+
+
+    @OneToOne
+    @MapsId
+    private Endereco endereco;
 }
