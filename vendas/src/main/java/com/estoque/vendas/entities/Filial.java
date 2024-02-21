@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity(name = "filial")
@@ -33,5 +34,9 @@ public class Filial {
 
     @OneToMany(mappedBy = "id.filial")
     private Set<EstoqueFilial> estoqueFiliais = new HashSet<>();
+
+    public List<Produto> getEstoqueFiliais() {
+        return estoqueFiliais.stream().map(x -> x.getProduto()).toList();
+    }
 
 }
