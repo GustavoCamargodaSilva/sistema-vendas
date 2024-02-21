@@ -26,6 +26,5 @@ public class Vendedor {
     private String senha;
     private String telefone;
     private UserRole role;
-    private Filial filial;
     private Double salarioBase;
 }
