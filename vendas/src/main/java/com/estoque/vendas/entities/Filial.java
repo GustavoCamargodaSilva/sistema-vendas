@@ -17,8 +17,8 @@ import java.util.Set;
 public class Filial {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long codEndereco;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codFilial;
     private String cnpj;
     private String nome;
     private String fantasia;

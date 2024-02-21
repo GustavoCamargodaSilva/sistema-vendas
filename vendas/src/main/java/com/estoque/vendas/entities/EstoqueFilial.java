@@ -1,18 +1,21 @@
 package com.estoque.vendas.entities;
 
+import com.estoque.vendas.dto.EstoqueFilialDTO;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+import lombok.Setter;
 
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_estoque_filial")
+@Getter
+@Setter
 public class EstoqueFilial {
 
     @EmbeddedId
@@ -41,6 +44,10 @@ public class EstoqueFilial {
 
     public void setFilial(Filial filial) {
         id.setFilial(filial);
+    }
+
+    public void atualizarEstoque(Integer quantidadeEstoque) {
+        this.quantidadeEstoque += quantidadeEstoque;
     }
 
 }

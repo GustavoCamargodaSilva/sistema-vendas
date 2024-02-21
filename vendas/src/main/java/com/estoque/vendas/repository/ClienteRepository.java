@@ -1,2 +1,8 @@
-package com.estoque.vendas.repository;public class ClienteRepository {
+package com.estoque.vendas.repository;
+
+import com.estoque.vendas.entities.Cliente;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+
 }

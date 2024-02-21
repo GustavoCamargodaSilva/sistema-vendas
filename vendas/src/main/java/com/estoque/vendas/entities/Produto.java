@@ -30,7 +30,6 @@ public class Produto {
     @JoinColumn(name = "cod_categoria")
     private Categoria categoria;
 
-
     @OneToMany(mappedBy = "id.produto")
     private Set<EstoqueFilial> estoqueFiliais = new HashSet<>();
 

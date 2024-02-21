@@ -15,7 +15,7 @@ public class CategoriaDTO {
     private Long codCategoria;
     private String nome;
 
-    private CategoriaDTO(Categoria entity) {
+    public CategoriaDTO(Categoria entity) {
         codCategoria = entity.getCodCategoria();
         nome = entity.getNome();
     }
