@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_vendedor")
@@ -36,4 +38,6 @@ public class Vendedor {
     @MapsId
     private DadosBancarios dadosBancarios;
 
+    @OneToMany(mappedBy = "vendedor")
+    private List<Venda> vendas = new ArrayList<>();
 }

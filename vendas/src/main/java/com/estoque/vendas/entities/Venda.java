@@ -28,5 +28,9 @@ public class Venda {
     @MapsId
     private Pagamento pagamento;
 
+    @ManyToOne
+    @JoinColumn(name = "cod_vendedor")
+    private Vendedor vendedor;
+
 
 }
