@@ -31,4 +31,7 @@ public class Filial {
     private String email;
     private String telefone;
 
+    @OneToMany(mappedBy = "id.filial")
+    private Set<EstoqueFilial> estoqueFiliais = new HashSet<>();
+
 }

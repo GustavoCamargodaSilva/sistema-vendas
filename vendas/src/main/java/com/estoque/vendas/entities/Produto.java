@@ -3,6 +3,9 @@ package com.estoque.vendas.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity(name = "produto")
 @Table(name = "tb_produto")
 @Data
@@ -25,4 +28,10 @@ public class Produto {
     @ManyToOne
     @JoinColumn(name = "cod_categoria")
     private Categoria categoria;
+
+
+    @OneToMany(mappedBy = "id.produto")
+    private Set<EstoqueFilial> estoqueFiliais = new HashSet<>();
+
+
 }
