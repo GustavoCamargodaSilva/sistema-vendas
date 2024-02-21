@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -26,6 +28,9 @@ public class Cliente {
     private String email;
     private String telefone;
     private StatusCliente status;
+
+    @OneToMany(mappedBy = "cliente")
+    private Set<Venda> vendas = new HashSet<>();
 
 
     @OneToOne

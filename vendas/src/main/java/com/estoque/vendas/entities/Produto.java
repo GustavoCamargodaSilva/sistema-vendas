@@ -34,7 +34,14 @@ public class Produto {
     @OneToMany(mappedBy = "id.produto")
     private Set<EstoqueFilial> estoqueFiliais = new HashSet<>();
 
+    @OneToMany(mappedBy = "id.produto")
+    private Set<VendaItem> vendaItems = new HashSet<>();
+
     public List<Filial> getFilial() {
         return estoqueFiliais.stream().map(x -> x.getFilial()).toList();
+    }
+
+    public List<Venda> getVendas() {
+        return vendaItems.stream().map(x -> x.getVenda()).toList();
     }
 }

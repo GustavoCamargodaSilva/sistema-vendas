@@ -1,4 +1,4 @@
-package com.domain.estoque.security;
+package com.estoque.vendas.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

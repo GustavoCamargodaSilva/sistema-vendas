@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity(name = "venda")
 @Table(name = "tb_vendas")
@@ -32,5 +35,14 @@ public class Venda {
     @JoinColumn(name = "cod_vendedor")
     private Vendedor vendedor;
 
+    @ManyToOne
+    @JoinColumn(name = "cod_cliente")
+    private Cliente cliente;
 
+    @OneToMany(mappedBy = "id.venda")
+    private Set<VendaItem> vendaItems = new HashSet<>();
+
+    public List<Produto> getProdutos() {
+        return vendaItems.stream().map(x -> x.getProduto()).toList();
+    }
 }
