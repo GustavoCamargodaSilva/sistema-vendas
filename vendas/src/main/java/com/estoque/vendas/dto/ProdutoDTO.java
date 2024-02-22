@@ -26,7 +26,6 @@ public class ProdutoDTO {
 
     private CategoriaDTO categoria;
 
-
     public ProdutoDTO(Produto entity){
         codProduto = entity.getCodProduto();
         nome = entity.getNome();

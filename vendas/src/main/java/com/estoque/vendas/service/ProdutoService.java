@@ -12,6 +12,8 @@ import com.estoque.vendas.repository.EstoqueFilialRepository;
 import com.estoque.vendas.repository.ProdutoRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -49,6 +51,16 @@ public class ProdutoService {
         // Salva o produto no banco de dados
         entity = repository.save(entity);
 
+        return new ProdutoDTO(entity);
+    }
+
+    public Page<ProdutoDTO> findAllPage(Pageable pageable) {
+        Page<Produto> list = repository.findAll(pageable);
+        return list.map(x -> new ProdutoDTO(x));
+    }
+
+    public ProdutoDTO findById(Long id) {
+        Produto entity = repository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
         return new ProdutoDTO(entity);
     }
 }
