@@ -30,6 +30,18 @@ public class ProdutoController {
         return ResponseEntity.ok().body(dto);
     }
 
+    @PutMapping(value = "/atualizarproduto/{id}")
+    public ResponseEntity<ProdutoDTO> update(@PathVariable Long id, @RequestBody ProdutoDTO dto){
+        dto = service.update(id,dto);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    @DeleteMapping(value = "/deletarproduto/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @PostMapping(value = "/cadastrarproduto")
     public ResponseEntity<ProdutoDTO> insert(@RequestBody ProdutoDTO dto){
         dto = service.insert(dto);

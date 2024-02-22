@@ -32,7 +32,8 @@ public class SecurityConfiguration {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(autorize -> autorize.requestMatchers(HttpMethod.POST,"/**").permitAll()).authorizeHttpRequests(
                         autorize -> autorize.requestMatchers(HttpMethod.GET,"/**").permitAll()
-                )
+                ).authorizeHttpRequests(autorize -> autorize.requestMatchers(HttpMethod.PUT,"/**").permitAll()).authorizeHttpRequests(
+                        autorize -> autorize.requestMatchers(HttpMethod.DELETE,"/**").permitAll())
                 //autorizando que qualquer role possa acessar meus end points de loguin e cadastro
                 .build();
     }
