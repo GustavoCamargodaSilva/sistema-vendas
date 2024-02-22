@@ -36,7 +36,6 @@ public class ProdutoDTO {
         descricao = entity.getDescricao();
         tamanho = entity.getTamanho();
         categoria = new CategoriaDTO(entity.getCategoria());
-
     }
 
 
