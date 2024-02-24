@@ -27,6 +27,7 @@ public class Endereco {
     private String gia;
     private String ddd;
     private String siafi;
+    private String numero;
 
     @OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
     private Vendedor vendedor;

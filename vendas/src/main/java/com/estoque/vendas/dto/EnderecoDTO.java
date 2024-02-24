@@ -1,5 +1,6 @@
 package com.estoque.vendas.dto;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ public class EnderecoDTO {
 
     private Long codEndereco;
     private String cep;
+    @Column(columnDefinition = "TEXT")
     private String logradouro;
     private String complemento;
     private String bairro;
@@ -22,6 +24,12 @@ public class EnderecoDTO {
     private String gia;
     private String ddd;
     private String siafi;
+    private String numero;
+
+    public EnderecoDTO(RegisterCepDTO entity) {
+        cep = entity.getCep();
+        numero = entity.getNumero();
+    }
 
 
 }
