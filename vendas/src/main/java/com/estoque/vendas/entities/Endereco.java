@@ -1,5 +1,6 @@
 package com.estoque.vendas.entities;
 
+import com.estoque.vendas.dto.EnderecoDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,4 +35,18 @@ public class Endereco {
 
     @OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
     private Cliente cliente;
+
+    public Endereco(EnderecoDTO entity){
+        this.cep = entity.getCep();
+        this.logradouro = entity.getLogradouro();
+        this.complemento = entity.getComplemento();
+        this.bairro = entity.getBairro();
+        this.localidade = entity.getLocalidade();
+        this.uf = entity.getUf();
+        this.ibge = entity.getIbge();
+        this.gia = entity.getGia();
+        this.ddd = entity.getDdd();
+        this.siafi = entity.getSiafi();
+        this.numero = entity.getNumero();
+    }
 }

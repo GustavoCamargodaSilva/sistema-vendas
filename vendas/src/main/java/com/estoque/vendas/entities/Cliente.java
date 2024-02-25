@@ -1,6 +1,7 @@
 package com.estoque.vendas.entities;
 
 import com.estoque.vendas.enums.StatusCliente;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,9 +30,9 @@ public class Cliente {
     private String telefone;
     private StatusCliente status;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private Set<Venda> vendas = new HashSet<>();
-
 
     @OneToOne
     @MapsId

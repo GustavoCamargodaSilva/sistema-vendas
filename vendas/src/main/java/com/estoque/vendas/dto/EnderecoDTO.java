@@ -1,5 +1,6 @@
 package com.estoque.vendas.dto;
 
+import com.estoque.vendas.entities.Endereco;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +29,21 @@ public class EnderecoDTO {
 
     public EnderecoDTO(RegisterCepDTO entity) {
         cep = entity.getCep();
+        numero = entity.getNumero();
+    }
+
+    public EnderecoDTO(Endereco entity) {
+        codEndereco = entity.getCodEndereco();
+        cep = entity.getCep();
+        logradouro = entity.getLogradouro();
+        complemento = entity.getComplemento();
+        bairro = entity.getBairro();
+        localidade = entity.getLocalidade();
+        uf = entity.getUf();
+        ibge = entity.getIbge();
+        gia = entity.getGia();
+        ddd = entity.getDdd();
+        siafi = entity.getSiafi();
         numero = entity.getNumero();
     }
 

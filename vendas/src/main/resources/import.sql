@@ -14,7 +14,7 @@ INSERT INTO tb_vendedor (nome, data_nascimento, email, senha, telefone, role, sa
 INSERT INTO tb_vendedor (nome, data_nascimento, email, senha, telefone, role, salario_base, dados_bancarios_cod_dados_bancarios, endereco_cod_endereco) VALUES ('Augusto', '2001-07-25', 'teste@gmail.com', '1234567', '41997041695', 0, 2000.00, 2, 2);
 
 INSERT INTO tb_cliente (cpf, nome, data_nascimento, email, telefone, status, endereco_cod_endereco) VALUES ('12345678901', 'Gustavo', '2001-07-25', 'gugusilvababolim@gmail.com', '11999999999', 0,1);
-INSERT INTO tb_cliente (cpf, nome, data_nascimento, email, telefone, status, endereco_cod_endereco) VALUES ('12345678901', 'Augusto', '2001-07-25', 'teste@gmail.com', '41997041695', 0,2);
+INSERT INTO tb_cliente (cpf, nome, data_nascimento, email, telefone, status, endereco_cod_endereco) VALUES ('12345678922', 'Augusto', '2001-07-25', 'teste@gmail.com', '41997041695', 0,2);
 
 INSERT INTO tb_pagamento (forma_pagamento,data_pagamento) VALUES (0, TIMESTAMP WITH TIME ZONE '2022-07-25T13:00:00Z');
 
