@@ -23,13 +23,14 @@ public class EnderecoService {
     @Transactional
     public EnderecoDTO cadastrarEndereco(String cep,String numero) throws RuntimeException {
         EnderecoDTO enderecoDTO = new EnderecoDTO();
+        Endereco newEndereco = null;
         if (repository.findByCep(cep) == null) {
             enderecoDTO = consultarCepApi.consultarCep(cep);
-            Endereco newEndereco = new Endereco();
+            newEndereco = new Endereco();
             BeanUtils.copyProperties(enderecoDTO, newEndereco);
             newEndereco.setNumero(numero);
             repository.save(newEndereco);
         }
-        return enderecoDTO;
+        return new EnderecoDTO(newEndereco);
     }
 }
