@@ -35,4 +35,10 @@ public class ClienteController {
         ClienteDTO clienteDTO = service.insert(dto);
         return ResponseEntity.ok(clienteDTO);
     }
+
+    @PutMapping(value = "/atualizar/{id}")
+    public ResponseEntity<ClienteDTO> atualizarCliente(@PathVariable Long id, @RequestBody RegisterClienteDTO dto) throws RuntimeException {
+        ClienteDTO clienteDTO = service.update(id, dto);
+        return ResponseEntity.ok(clienteDTO);
+    }
 }

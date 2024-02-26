@@ -49,4 +49,12 @@ public class ClienteService {
 
         return new ClienteDTO(cliente);
     }
+
+    @Transactional
+    public ClienteDTO update(Long id, RegisterClienteDTO dto) {
+        Cliente cliente = repository.findById(id).orElseThrow();
+        BeanUtils.copyProperties(dto, cliente);
+        cliente = repository.save(cliente);
+        return new ClienteDTO(cliente);
+    }
 }
