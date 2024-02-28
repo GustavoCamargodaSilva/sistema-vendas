@@ -25,6 +25,7 @@ import java.util.List;
 @NoArgsConstructor
 public class VendedorDTO {
 
+    private Long codVendedor;
     private String nome;
     private LocalDate dataNascimento;
     private String email;
@@ -36,6 +37,7 @@ public class VendedorDTO {
     private DadosBancariosDTO dadosBancarios;
 
     public VendedorDTO(Vendedor entity) {
+        codVendedor = entity.getCodVendedor();
         nome = entity.getNome();
         dataNascimento = entity.getDataNascimento();
         email = entity.getEmail();

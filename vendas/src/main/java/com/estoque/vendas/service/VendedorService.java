@@ -1,9 +1,6 @@
 package com.estoque.vendas.service;
 
-import com.estoque.vendas.dto.CadastroVendedorDTO;
-import com.estoque.vendas.dto.DadosBancariosDTO;
-import com.estoque.vendas.dto.EnderecoDTO;
-import com.estoque.vendas.dto.VendedorDTO;
+import com.estoque.vendas.dto.*;
 import com.estoque.vendas.entities.DadosBancarios;
 import com.estoque.vendas.entities.Endereco;
 import com.estoque.vendas.entities.Vendedor;
@@ -60,14 +57,19 @@ public class VendedorService {
         newVendedor.setRole(UserRole.VENDEDOR);
         newVendedor.setSalarioBase(1500.0);
 
-
-
         newVendedor.setEndereco(new Endereco(enderecoDTO));
         newVendedor.setDadosBancarios(new DadosBancarios(dadosBancariosDTO));
 
         newVendedor = repository.save(newVendedor);
 
         return new VendedorDTO(newVendedor);
+    }
+
+    @Transactional
+    public VendedorDTO atualizarSenha(AtualizarSenhaDTO dto) {
+        Vendedor vendedor = repository.findById(dto.getCodVendedor()).orElseThrow();
+        vendedor.setSenha(dto.getSenha());
+        return new VendedorDTO(repository.save(vendedor));
     }
 
 }
