@@ -30,12 +30,10 @@ public class Vendedor {
     private UserRole role;
     private Double salarioBase;
 
-    @OneToOne
-    @MapsId
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Endereco endereco;
 
-    @OneToOne
-    @MapsId
+    @OneToOne(cascade = CascadeType.PERSIST)
     private DadosBancarios dadosBancarios;
 
     @OneToMany(mappedBy = "vendedor")

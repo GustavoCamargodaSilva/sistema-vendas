@@ -1,6 +1,7 @@
 package com.estoque.vendas.entities;
 
 import com.estoque.vendas.dto.EnderecoDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,9 +31,11 @@ public class Endereco {
     private String siafi;
     private String numero;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
     private Vendedor vendedor;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
     private Cliente cliente;
 

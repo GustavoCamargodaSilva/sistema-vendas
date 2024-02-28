@@ -16,12 +16,9 @@ INSERT INTO tb_vendedor (nome, data_nascimento, email, senha, telefone, role, sa
 INSERT INTO tb_cliente (cpf, nome, data_nascimento, email, telefone, status, endereco_cod_endereco) VALUES ('12345678901', 'Gustavo', '2001-07-25', 'gugusilvababolim@gmail.com', '11999999999', 0,1);
 INSERT INTO tb_cliente (cpf, nome, data_nascimento, email, telefone, status, endereco_cod_endereco) VALUES ('12345678922', 'Augusto', '2001-07-25', 'teste@gmail.com', '41997041695', 0,2);
 
-INSERT INTO tb_pagamento (forma_pagamento,data_pagamento) VALUES (0, TIMESTAMP WITH TIME ZONE '2022-07-25T13:00:00Z');
-
 INSERT INTO tb_filial(cnpj,nome, fantasia, logradouro, numero, complemento, cep, bairro, municipio, uf, email,telefone) VALUES ('12345678901234', 'Filial 1', 'Filial 1', 'Rua 1', '123', 'Casa 1', '12345678', 'Bairro 1', 'Cidade 1', 'SP', 'teste@gmail.com', '11999999999');
 
 INSERT INTO tb_estoque_filial (quantidade_estoque, cod_produto, cod_filial) VALUES (10, 1, 1);
 INSERT INTO tb_estoque_filial (quantidade_estoque, cod_produto, cod_filial) VALUES (10, 2, 1);
 
-INSERT INTO tb_vendas(data_venda,status_venda, pagamento_cod_pagamento, cod_cliente, cod_vendedor) VALUES (TIMESTAMP WITH TIME ZONE '2022-07-25T13:00:00Z', 1, 1, 1, 1);
 

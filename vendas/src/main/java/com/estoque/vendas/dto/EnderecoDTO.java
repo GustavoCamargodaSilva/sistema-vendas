@@ -15,7 +15,6 @@ public class EnderecoDTO {
 
     private Long codEndereco;
     private String cep;
-    @Column(columnDefinition = "TEXT")
     private String logradouro;
     private String complemento;
     private String bairro;

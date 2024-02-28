@@ -21,6 +21,11 @@ public class EnderecoService {
     private ConsumoApiCep consultarCepApi;
 
     @Transactional
+    public EnderecoDTO findById(Long id) throws RuntimeException {
+        Endereco endereco = repository.findById(id).orElseThrow(() -> new RuntimeException("Endereco não encontrado"));
+        return new EnderecoDTO(endereco);
+    }
+    @Transactional
     public EnderecoDTO cadastrarEndereco(String cep,String numero) throws RuntimeException {
         EnderecoDTO enderecoDTO = new EnderecoDTO();
         Endereco newEndereco = null;

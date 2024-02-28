@@ -1,7 +1,6 @@
 package com.estoque.vendas.repository;
 
 import com.estoque.vendas.entities.EstoqueFilial;
-import com.estoque.vendas.entities.EstoqueFilialPK;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

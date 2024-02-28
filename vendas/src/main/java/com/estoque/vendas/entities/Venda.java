@@ -1,5 +1,6 @@
 package com.estoque.vendas.entities;
 
+import com.estoque.vendas.enums.FormaPagamento;
 import com.estoque.vendas.enums.StatusVenda;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,10 +27,7 @@ public class Venda {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant dataVenda;
     private StatusVenda statusVenda;
-
-    @OneToOne
-    @MapsId
-    private Pagamento pagamento;
+    private FormaPagamento formaPagamento;
 
     @ManyToOne
     @JoinColumn(name = "cod_vendedor")

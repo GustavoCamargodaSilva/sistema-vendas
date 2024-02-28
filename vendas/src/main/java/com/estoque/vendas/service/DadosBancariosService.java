@@ -37,4 +37,10 @@ public class DadosBancariosService {
         dadosBancarios = repository.save(dadosBancarios);
         return new DadosBancariosDTO(dadosBancarios);
     }
+
+    @Transactional
+    public DadosBancariosDTO findById(Long codDadosBancarios) {
+        DadosBancarios dadosBancarios = repository.findById(codDadosBancarios).get();
+        return new DadosBancariosDTO(dadosBancarios);
+    }
 }
