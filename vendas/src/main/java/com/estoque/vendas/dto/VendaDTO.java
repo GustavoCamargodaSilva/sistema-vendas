@@ -31,6 +31,7 @@ public class VendaDTO {
     private Instant dataVenda;
     private StatusVenda statusVenda;
     private FormaPagamento formaPagamento;
+    private Double valorTotal;
 
     private VendedorDTO vendedor;
 
