@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AttDadosBancariosDTO {
 
+    private String codDadosBancarios;
     private String agencia;
     private String conta;
     private String banco;

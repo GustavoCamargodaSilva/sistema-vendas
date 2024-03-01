@@ -21,7 +21,7 @@ public class DadosBancariosController {
     }
 
     @PutMapping(value = "/{codDadosBancarios}")
-    public ResponseEntity<DadosBancariosDTO> atualizarDadosBancarios(@PathVariable Long codDadosBancarios, @RequestBody AttDadosBancariosDTO dto){
+    public ResponseEntity<DadosBancariosDTO> atualizarDadosBancarios(@PathVariable Long codDadosBancarios, @RequestBody DadosBancariosDTO dto){
         DadosBancariosDTO dadosBancariosDTO = service.atualizarDadosBancarios(codDadosBancarios, dto);
         return ResponseEntity.ok(dadosBancariosDTO);
     }

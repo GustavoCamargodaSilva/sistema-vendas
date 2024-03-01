@@ -72,4 +72,18 @@ public class VendedorService {
         return new VendedorDTO(repository.save(vendedor));
     }
 
+    @Transactional
+    public VendedorDTO alterarDadosVendedor(AttDadosVendedor dto) throws RuntimeException {
+        Vendedor vendedor = repository.findById(dto.getCodVendedor()).orElseThrow();
+
+        BeanUtils.copyProperties(dto, vendedor);
+
+        DadosBancariosDTO dadosBancariosDTO = dadosBancariosService.atualizarDadosBancarios(vendedor.getDadosBancarios().getCodDadosBancarios(), dto.getDadosBancarios());
+
+        EnderecoDTO enderecoDTO = enderecoService.atualizarEndereco(vendedor.getEndereco().getCodEndereco(),new RegisterCepDTO(dto.getCep(),dto.getNumero()));
+
+        vendedor.setEndereco(new Endereco(enderecoDTO));
+
+        return new VendedorDTO(repository.save(vendedor));
+    }
 }

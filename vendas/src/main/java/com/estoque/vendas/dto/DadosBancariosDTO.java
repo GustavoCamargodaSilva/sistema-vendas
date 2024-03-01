@@ -12,6 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class DadosBancariosDTO {
 
+    private Long codDadosBancarios;
     private String agencia;
     private String conta;
     private String banco;
@@ -19,6 +20,7 @@ public class DadosBancariosDTO {
     private String pix;
 
     public DadosBancariosDTO(DadosBancarios entity) {
+        this.codDadosBancarios = entity.getCodDadosBancarios();
         this.agencia = entity.getAgencia();
         this.conta = entity.getConta();
         this.banco = entity.getBanco();

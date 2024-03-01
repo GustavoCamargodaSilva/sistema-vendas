@@ -2,6 +2,7 @@ package com.estoque.vendas.service;
 
 import com.estoque.vendas.Util.ConsumoApiCep;
 import com.estoque.vendas.dto.EnderecoDTO;
+import com.estoque.vendas.dto.RegisterCepDTO;
 import com.estoque.vendas.entities.Endereco;
 import com.estoque.vendas.exceptions.RuntimeException;
 import com.estoque.vendas.repository.EnderecoRepository;
@@ -24,6 +25,23 @@ public class EnderecoService {
     public EnderecoDTO findById(Long id) throws RuntimeException {
         Endereco endereco = repository.findById(id).orElseThrow(() -> new RuntimeException("Endereco não encontrado"));
         return new EnderecoDTO(endereco);
+    }
+
+    @Transactional
+    public EnderecoDTO findByCep(String cep) throws RuntimeException {
+        Endereco endereco = repository.findByCep(cep);
+        return new EnderecoDTO(endereco);
+    }
+
+    @Transactional
+    public EnderecoDTO atualizarEndereco(Long id, RegisterCepDTO dto) throws RuntimeException {
+        Endereco endereco = repository.findById(id).orElseThrow();
+        if(endereco.getCep() == dto.getCep() && endereco.getNumero() == dto.getNumero()){
+            return new EnderecoDTO(endereco);
+        }else{
+            EnderecoDTO enderecoDTO = cadastrarEndereco(dto.getCep(),dto.getNumero());
+            return enderecoDTO;
+        }
     }
     @Transactional
     public EnderecoDTO cadastrarEndereco(String cep,String numero) throws RuntimeException {

@@ -30,7 +30,7 @@ public class DadosBancariosService {
     }
 
     @Transactional
-    public DadosBancariosDTO atualizarDadosBancarios(Long codDadosBancarios, AttDadosBancariosDTO dto) {
+    public DadosBancariosDTO atualizarDadosBancarios(Long codDadosBancarios, DadosBancariosDTO dto) {
         DadosBancarios dadosBancarios = repository.findById(codDadosBancarios).get();
         BeanUtils.copyProperties(dto, dadosBancarios);
         dadosBancarios.setCodDadosBancarios(codDadosBancarios);
