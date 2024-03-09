@@ -1,7 +1,5 @@
 package com.estoque.vendas.dto;
 
-import com.estoque.vendas.entities.DadosBancarios;
-import com.estoque.vendas.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

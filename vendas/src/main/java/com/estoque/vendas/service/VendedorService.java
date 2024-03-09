@@ -4,14 +4,12 @@ import com.estoque.vendas.dto.*;
 import com.estoque.vendas.entities.DadosBancarios;
 import com.estoque.vendas.entities.Endereco;
 import com.estoque.vendas.entities.Vendedor;
-import com.estoque.vendas.enums.UserRole;
 import com.estoque.vendas.exceptions.RuntimeException;
 import com.estoque.vendas.repository.VendedorRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
 import java.util.List;
 
@@ -54,7 +52,6 @@ public class VendedorService {
         Vendedor newVendedor = new Vendedor();
         BeanUtils.copyProperties(entityDTO, newVendedor);
         newVendedor.setSenha("123456");
-        newVendedor.setRole(UserRole.VENDEDOR);
         newVendedor.setSalarioBase(1500.0);
 
         newVendedor.setEndereco(new Endereco(enderecoDTO));

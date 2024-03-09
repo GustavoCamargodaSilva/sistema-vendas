@@ -1,7 +1,6 @@
 package com.estoque.vendas.entities;
 
 import com.estoque.vendas.enums.FormaPagamento;
-import com.estoque.vendas.enums.StatusVenda;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +25,6 @@ public class Venda {
     private Long codVenda;
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant dataVenda;
-    private StatusVenda statusVenda;
     private FormaPagamento formaPagamento;
     private Double valorTotal;
 
