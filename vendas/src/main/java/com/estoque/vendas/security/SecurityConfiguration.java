@@ -36,7 +36,6 @@ public class SecurityConfiguration {
                         autorize -> autorize.requestMatchers(HttpMethod.DELETE,"/**").permitAll())
                 //autorizando que qualquer role possa acessar meus end points de loguin e cadastro
                 .build();
-        
     }
 
     @Bean

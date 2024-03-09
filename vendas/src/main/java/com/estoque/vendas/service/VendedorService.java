@@ -3,18 +3,23 @@ package com.estoque.vendas.service;
 import com.estoque.vendas.dto.*;
 import com.estoque.vendas.entities.DadosBancarios;
 import com.estoque.vendas.entities.Endereco;
+import com.estoque.vendas.entities.Role;
 import com.estoque.vendas.entities.Vendedor;
 import com.estoque.vendas.exceptions.RuntimeException;
+import com.estoque.vendas.projections.VendedorDatailsProjection;
 import com.estoque.vendas.repository.VendedorRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class VendedorService {
+public class VendedorService implements UserDetailsService {
 
     @Autowired
     private VendedorRepository repository;
@@ -24,6 +29,7 @@ public class VendedorService {
 
     @Autowired
     private DadosBancariosService dadosBancariosService;
+
 
     @Transactional
     public List<VendedorDTO> consultarVendedor() {
@@ -82,5 +88,23 @@ public class VendedorService {
         vendedor.setEndereco(new Endereco(enderecoDTO));
 
         return new VendedorDTO(repository.save(vendedor));
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        List<VendedorDatailsProjection> resultado= repository.searchVendedorAndRolesByEmail(username);
+        if(resultado.size() == 0){
+            throw new UsernameNotFoundException("Email not found");
+        }
+
+        Vendedor vendedor = new Vendedor();
+        vendedor.setEmail(username);
+        vendedor.setSenha(resultado.get(0).getSenha());
+        for (VendedorDatailsProjection projection : resultado) {
+            vendedor.addRole(new Role(projection.getRoleId(), projection.getAuthority()));
+        }
+
+        return vendedor;
     }
 }
