@@ -57,7 +57,7 @@ public class VendedorService implements UserDetailsService {
 
         Vendedor newVendedor = new Vendedor();
         BeanUtils.copyProperties(entityDTO, newVendedor);
-        newVendedor.setSenha("123456");
+        newVendedor.setPassword("123456");
         newVendedor.setSalarioBase(1500.0);
 
         newVendedor.setEndereco(new Endereco(enderecoDTO));
@@ -71,7 +71,7 @@ public class VendedorService implements UserDetailsService {
     @Transactional
     public VendedorDTO atualizarSenha(AtualizarSenhaDTO dto) {
         Vendedor vendedor = repository.findById(dto.getCodVendedor()).orElseThrow();
-        vendedor.setSenha(dto.getSenha());
+        vendedor.setPassword(dto.getSenha());
         return new VendedorDTO(repository.save(vendedor));
     }
 
@@ -100,7 +100,7 @@ public class VendedorService implements UserDetailsService {
 
         Vendedor vendedor = new Vendedor();
         vendedor.setEmail(username);
-        vendedor.setSenha(resultado.get(0).getSenha());
+        vendedor.setPassword(resultado.get(0).getPassword());
         for (VendedorDatailsProjection projection : resultado) {
             vendedor.addRole(new Role(projection.getRoleId(), projection.getAuthority()));
         }

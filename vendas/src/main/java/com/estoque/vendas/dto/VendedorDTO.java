@@ -18,7 +18,7 @@ public class VendedorDTO {
     private String nome;
     private LocalDate dataNascimento;
     private String email;
-    private String senha;
+    private String password;
     private String telefone;
     private Double salarioBase;
     private EnderecoDTO endereco;
@@ -29,7 +29,7 @@ public class VendedorDTO {
         nome = entity.getNome();
         dataNascimento = entity.getDataNascimento();
         email = entity.getEmail();
-        senha = entity.getSenha();
+        password = entity.getPassword();
         telefone = entity.getTelefone();
         salarioBase = entity.getSalarioBase();
         endereco = new EnderecoDTO(entity.getEndereco());

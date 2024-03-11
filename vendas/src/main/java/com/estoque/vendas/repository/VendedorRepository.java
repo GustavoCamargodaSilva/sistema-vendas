@@ -11,7 +11,7 @@ public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 
     Vendedor findByNome(String nome);
 
-    @Query(nativeQuery = true, value = "SELECT tb_vendedor.email AS username, tb_vendedor.senha, tb_role.id AS roleId, tb_role.authority" +
+    @Query(nativeQuery = true, value = "SELECT tb_vendedor.email AS username, tb_vendedor.password, tb_role.id AS roleId, tb_role.authority" +
             " FROM tb_vendedor" +
             " INNER JOIN tb_vendedor_role ON tb_vendedor.cod_vendedor = tb_vendedor_role.vendedor_id" +
             " INNER JOIN tb_role ON tb_role.id = tb_vendedor_role.role_id" +

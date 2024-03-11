@@ -17,7 +17,7 @@ public class AtualizarSenhaDTO {
 
     public AtualizarSenhaDTO(VendedorDTO dto){
         this.codVendedor = dto.getCodVendedor();
-        this.senha = dto.getSenha();
+        this.senha = dto.getPassword();
 
     }
 

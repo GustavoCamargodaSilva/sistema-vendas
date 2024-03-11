@@ -26,7 +26,7 @@ public class Vendedor implements UserDetails {
     private LocalDate dataNascimento;
     @Column(unique = true)
     private String email;
-    private String senha;
+    private String password;
     private String telefone;
     private Double salarioBase;
 
@@ -52,7 +52,7 @@ public class Vendedor implements UserDetails {
 
     @Override
     public String getPassword() {
-        return senha;
+        return password;
     }
 
     @Override

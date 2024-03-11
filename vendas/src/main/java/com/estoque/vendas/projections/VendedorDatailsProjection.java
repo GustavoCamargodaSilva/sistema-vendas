@@ -3,7 +3,7 @@ package com.estoque.vendas.projections;
 public interface VendedorDatailsProjection {
 
     String getUsername();
-    String getSenha();
+    String getPassword();
     Long getRoleId();
     String getAuthority();
 

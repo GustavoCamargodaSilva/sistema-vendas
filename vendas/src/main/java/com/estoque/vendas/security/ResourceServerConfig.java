@@ -1,4 +1,4 @@
-package com.devsuperior.demo.config;
+package com.estoque.vendas.security;
 
 import java.util.Arrays;
 

@@ -10,7 +10,7 @@ INSERT INTO tb_endereco (cep, logradouro, complemento, bairro, localidade, uf, i
 INSERT INTO tb_dados_bancarios (agencia, conta, banco, tipo_conta, pix) VALUES ('1234', '123456', 'Bradesco', 'Corrente', '123456789');
 INSERT INTO tb_dados_bancarios (agencia, conta, banco, tipo_conta, pix) VALUES ('4321', '654321', 'Itau', 'Poupança', '987654321');
 
-INSERT INTO tb_vendedor (data_nascimento,salario_base,dados_bancarios_cod_dados_bancarios,endereco_cod_endereco,email,nome,senha,telefone) VALUES ('2001-07-25',1500.00,1,1,'gugusilvababolim@gmail.com','Gustavo','123456','41997041695');
+INSERT INTO tb_vendedor (data_nascimento,salario_base,dados_bancarios_cod_dados_bancarios,endereco_cod_endereco,email,nome,password,telefone) VALUES ('2001-07-25',1500.00,1,1,'gugusilvababolim@gmail.com','Gustavo','e10adc3949ba59abbe56e057f20f883e','41997041695');
 
 INSERT INTO tb_role (authority) VALUES ('ROLE_OPERATOR');
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');

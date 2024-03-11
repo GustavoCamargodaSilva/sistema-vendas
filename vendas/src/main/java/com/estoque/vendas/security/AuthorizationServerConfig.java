@@ -1,4 +1,4 @@
-package com.devsuperior.demo.config;
+package com.estoque.vendas.security;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -8,6 +8,10 @@ import java.time.Duration;
 import java.util.List;
 import java.util.UUID;
 
+import com.estoque.vendas.entities.Vendedor;
+import com.estoque.vendas.security.customgrant.CustomPasswordAuthenticationConverter;
+import com.estoque.vendas.security.customgrant.CustomPasswordAuthenticationProvider;
+import com.estoque.vendas.security.customgrant.CustomUserAuthorities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -44,9 +48,6 @@ import org.springframework.security.oauth2.server.authorization.token.OAuth2Toke
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenGenerator;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.devsuperior.demo.config.customgrant.CustomPasswordAuthenticationConverter;
-import com.devsuperior.demo.config.customgrant.CustomPasswordAuthenticationProvider;
-import com.devsuperior.demo.config.customgrant.CustomUserAuthorities;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
@@ -152,7 +153,7 @@ public class AuthorizationServerConfig {
 		return context -> {
 			OAuth2ClientAuthenticationToken principal = context.getPrincipal();
 			CustomUserAuthorities user = (CustomUserAuthorities) principal.getDetails();
-			List<String> authorities = user.getAuthorities().stream().map(x -> x.getAuthority()).toList();
+			List<String> authorities = vendedormxckl,,,vc.,.z,.';f[sdpd-pcxs.getAuthorities().stream().map(x -> x.getAuthority()).toList();
 			if (context.getTokenType().getValue().equals("access_token")) {
 				// @formatter:off
 				context.getClaims()
