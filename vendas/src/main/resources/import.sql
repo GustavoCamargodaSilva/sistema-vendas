@@ -10,13 +10,13 @@ INSERT INTO tb_endereco (cep, logradouro, complemento, bairro, localidade, uf, i
 INSERT INTO tb_dados_bancarios (agencia, conta, banco, tipo_conta, pix) VALUES ('1234', '123456', 'Bradesco', 'Corrente', '123456789');
 INSERT INTO tb_dados_bancarios (agencia, conta, banco, tipo_conta, pix) VALUES ('4321', '654321', 'Itau', 'Poupança', '987654321');
 
-INSERT INTO tb_vendedor (data_nascimento,salario_base,dados_bancarios_cod_dados_bancarios,endereco_cod_endereco,email,nome,password,telefone) VALUES ('2001-07-25',1500.00,1,1,'gugusilvababolim@gmail.com','Gustavo','e10adc3949ba59abbe56e057f20f883e','41997041695');
+INSERT INTO tb_user (data_nascimento,salario_base,dados_bancarios_cod_dados_bancarios,endereco_cod_endereco,email,nome,password,telefone) VALUES ('2001-07-25',1500.00,1,1,'gugusilvababolim@gmail.com','Gustavo','$2a$10$hxfTcilETNpE9w5Zxb.qu.rjPI6WCXN21OFSuYNod63Tot85RjGWS','41997041695');
 
-INSERT INTO tb_role (authority) VALUES ('ROLE_OPERATOR');
+INSERT INTO tb_role (authority) VALUES ('ROLE_VENDEDOR');
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
 
-INSERT INTO tb_vendedor_role (vendedor_id, role_id) VALUES (1, 1);
-INSERT INTO tb_vendedor_role (vendedor_id, role_id) VALUES (1, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 2);
 
 INSERT INTO tb_cliente (cpf, nome, data_nascimento, email, telefone, status, endereco_cod_endereco) VALUES ('12345678901', 'Gustavo', '2001-07-25', 'gugusilvababolim@gmail.com', '11999999999', 0,1);
 INSERT INTO tb_cliente (cpf, nome, data_nascimento, email, telefone, status, endereco_cod_endereco) VALUES ('12345678922', 'Augusto', '2001-07-25', 'teste@gmail.com', '41997041695', 0,2);

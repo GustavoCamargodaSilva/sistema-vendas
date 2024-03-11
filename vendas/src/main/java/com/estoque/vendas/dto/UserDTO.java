@@ -1,6 +1,6 @@
 package com.estoque.vendas.dto;
 
-import com.estoque.vendas.entities.Vendedor;
+import com.estoque.vendas.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +12,9 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class VendedorDTO {
+public class UserDTO {
 
-    private Long codVendedor;
+    private Long id;
     private String nome;
     private LocalDate dataNascimento;
     private String email;
@@ -24,8 +24,8 @@ public class VendedorDTO {
     private EnderecoDTO endereco;
     private DadosBancariosDTO dadosBancarios;
 
-    public VendedorDTO(Vendedor entity) {
-        codVendedor = entity.getCodVendedor();
+    public UserDTO(User entity) {
+        id = entity.getId();
         nome = entity.getNome();
         dataNascimento = entity.getDataNascimento();
         email = entity.getEmail();

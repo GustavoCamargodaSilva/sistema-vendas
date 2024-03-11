@@ -21,7 +21,7 @@ public class CadastroVendedorDTO {
     private String numero;
     private DadosBancariosDTO dadosBancarios;
 
-    public CadastroVendedorDTO(VendedorDTO entity) {
+    public CadastroVendedorDTO(UserDTO entity) {
         nome = entity.getNome();
         dataNascimento = entity.getDataNascimento();
         email = entity.getEmail();

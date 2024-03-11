@@ -33,7 +33,7 @@ public class Endereco {
 
     @JsonIgnore
     @OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
-    private Vendedor vendedor;
+    private User user;
 
     @JsonIgnore
     @OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)

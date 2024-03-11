@@ -8,12 +8,12 @@ import java.time.Duration;
 import java.util.List;
 import java.util.UUID;
 
-import com.estoque.vendas.entities.Vendedor;
 import com.estoque.vendas.security.customgrant.CustomPasswordAuthenticationConverter;
 import com.estoque.vendas.security.customgrant.CustomPasswordAuthenticationProvider;
 import com.estoque.vendas.security.customgrant.CustomUserAuthorities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -67,6 +67,15 @@ public class AuthorizationServerConfig {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
+
+	@Bean
+	@Order(1)
+	public SecurityFilterChain h2SecurityFilterChain(HttpSecurity http) throws Exception {
+
+		http.securityMatcher(PathRequest.toH2Console()).csrf(csrf -> csrf.disable())
+				.headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()));
+		return http.build();
+	}
 
 	@Bean
 	@Order(2)
@@ -153,7 +162,7 @@ public class AuthorizationServerConfig {
 		return context -> {
 			OAuth2ClientAuthenticationToken principal = context.getPrincipal();
 			CustomUserAuthorities user = (CustomUserAuthorities) principal.getDetails();
-			List<String> authorities = vendedormxckl,,,vc.,.z,.';f[sdpd-pcxs.getAuthorities().stream().map(x -> x.getAuthority()).toList();
+			List<String> authorities = user.getAuthorities().stream().map(x -> x.getAuthority()).toList();
 			if (context.getTokenType().getValue().equals("access_token")) {
 				// @formatter:off
 				context.getClaims()

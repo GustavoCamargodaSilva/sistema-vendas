@@ -12,16 +12,16 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Entity
-@Table(name = "tb_vendedor")
+@Table(name = "tb_user")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Vendedor implements UserDetails {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codVendedor;
+    private Long id;
     private String nome;
     private LocalDate dataNascimento;
     @Column(unique = true)
@@ -36,12 +36,12 @@ public class Vendedor implements UserDetails {
     @OneToOne(cascade = CascadeType.PERSIST)
     private DadosBancarios dadosBancarios;
 
-    @OneToMany(mappedBy = "vendedor")
+    @OneToMany(mappedBy = "user")
     private List<Venda> vendas = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name = "tb_vendedor_role",
-            joinColumns = @JoinColumn(name = "vendedor_id"),
+    @JoinTable(name = "tb_user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 

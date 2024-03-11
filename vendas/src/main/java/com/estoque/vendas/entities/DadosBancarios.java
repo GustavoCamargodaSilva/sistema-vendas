@@ -25,7 +25,7 @@ public class DadosBancarios {
     private String pix;
 
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "dadosBancarios")
-    private Vendedor vendedor;
+    private User user;
 
     public DadosBancarios(DadosBancariosDTO dto){
         this.agencia = dto.getAgencia();

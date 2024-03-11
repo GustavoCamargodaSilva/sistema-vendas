@@ -12,11 +12,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AtualizarSenhaDTO {
 
-    private Long codVendedor;
+    private Long id;
     private String senha;
 
-    public AtualizarSenhaDTO(VendedorDTO dto){
-        this.codVendedor = dto.getCodVendedor();
+    public AtualizarSenhaDTO(UserDTO dto){
+        this.id = dto.getId();
         this.senha = dto.getPassword();
 
     }

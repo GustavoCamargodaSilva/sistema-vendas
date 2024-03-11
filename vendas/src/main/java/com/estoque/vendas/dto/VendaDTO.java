@@ -23,7 +23,7 @@ public class VendaDTO {
     private FormaPagamento formaPagamento;
     private Double valorTotal;
 
-    private VendedorDTO vendedor;
+    private UserDTO vendedor;
 
     private ClienteDTO cliente;
 
@@ -33,7 +33,7 @@ public class VendaDTO {
         codVenda = entity.getCodVenda();
         dataVenda = entity.getDataVenda();
         formaPagamento = entity.getFormaPagamento();
-        vendedor = new VendedorDTO(entity.getVendedor());
+        vendedor = new UserDTO(entity.getUser());
         cliente = new ClienteDTO(entity.getCliente());
         vendaItems = new ArrayList<>(entity.getVendaItems());
     }

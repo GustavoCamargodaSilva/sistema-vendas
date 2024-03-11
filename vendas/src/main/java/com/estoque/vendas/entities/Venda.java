@@ -29,8 +29,8 @@ public class Venda {
     private Double valorTotal;
 
     @ManyToOne
-    @JoinColumn(name = "cod_vendedor")
-    private Vendedor vendedor;
+    @JoinColumn(name = "id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "cod_cliente")
