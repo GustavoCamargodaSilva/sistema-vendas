@@ -4,21 +4,24 @@ import com.estoque.vendas.dto.*;
 import com.estoque.vendas.entities.DadosBancarios;
 import com.estoque.vendas.entities.Endereco;
 import com.estoque.vendas.entities.Role;
+import com.estoque.vendas.entities.User;
 import com.estoque.vendas.exceptions.RuntimeException;
 import com.estoque.vendas.projections.VendedorDatailsProjection;
 import com.estoque.vendas.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class User implements UserDetailsService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository repository;
@@ -29,6 +32,8 @@ public class User implements UserDetailsService {
     @Autowired
     private DadosBancariosService dadosBancariosService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Transactional
     public List<UserDTO> consultarVendedor() {
@@ -68,10 +73,18 @@ public class User implements UserDetailsService {
     }
 
     @Transactional
-    public UserDTO atualizarSenha(AtualizarSenhaDTO dto) {
-        com.estoque.vendas.entities.User user = repository.findById(dto.getId()).orElseThrow();
-        user.setPassword(dto.getSenha());
-        return new UserDTO(repository.save(user));
+    public UserDTO atualizarSenha(AtualizarSenhaDTO dto) throws RuntimeException {
+        User user = repository.findById(dto.getId()).orElseThrow();
+
+        boolean matches = passwordEncoder.matches(dto.getOldPassword(),user.getPassword());
+
+        if(matches){
+            String senhaEncripty = passwordEncoder.encode(dto.getNewPassword());
+            user.setPassword(senhaEncripty);
+            return new UserDTO(repository.save(user));
+        }else{
+            throw new RuntimeException("Senha antiga incorreta");
+        }
     }
 
     @Transactional
@@ -97,7 +110,7 @@ public class User implements UserDetailsService {
             throw new UsernameNotFoundException("Email not found");
         }
 
-        com.estoque.vendas.entities.User user = new com.estoque.vendas.entities.User();
+        User user = new User();
         user.setEmail(username);
         user.setPassword(resultado.get(0).getPassword());
         for (VendedorDatailsProjection projection : resultado) {

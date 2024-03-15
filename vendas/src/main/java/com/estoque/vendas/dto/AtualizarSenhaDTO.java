@@ -13,12 +13,12 @@ import lombok.Setter;
 public class AtualizarSenhaDTO {
 
     private Long id;
-    private String senha;
+    private String newPassword;
+    private String oldPassword;
 
     public AtualizarSenhaDTO(UserDTO dto){
         this.id = dto.getId();
-        this.senha = dto.getPassword();
-
+        this.newPassword = dto.getPassword();
     }
 
 }

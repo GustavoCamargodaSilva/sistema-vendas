@@ -29,7 +29,6 @@ public class UserDTO {
         nome = entity.getNome();
         dataNascimento = entity.getDataNascimento();
         email = entity.getEmail();
-        password = entity.getPassword();
         telefone = entity.getTelefone();
         salarioBase = entity.getSalarioBase();
         endereco = new EnderecoDTO(entity.getEndereco());

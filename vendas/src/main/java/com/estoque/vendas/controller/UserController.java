@@ -3,7 +3,7 @@ package com.estoque.vendas.controller;
 import com.estoque.vendas.dto.*;
 import com.estoque.vendas.exceptions.RuntimeException;
 import com.estoque.vendas.service.DadosBancariosService;
-import com.estoque.vendas.service.User;
+import com.estoque.vendas.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/vendedor")
-public class VendedorController {
+public class UserController {
 
     @Autowired
-    private User service;
+    private UserService service;
 
     @Autowired
     private DadosBancariosService dadosBancariosService;
@@ -40,7 +40,7 @@ public class VendedorController {
     }
 
     @PutMapping("/atualizarsenha")
-    public ResponseEntity<UserDTO> atualizarSenha(@RequestBody AtualizarSenhaDTO dto){
+    public ResponseEntity<UserDTO> atualizarSenha(@RequestBody AtualizarSenhaDTO dto) throws RuntimeException {
         UserDTO att = service.atualizarSenha(dto);
         return ResponseEntity.ok().build();
     }
