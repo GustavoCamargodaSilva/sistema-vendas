@@ -16,6 +16,8 @@ public class VendasApplication {
 		SpringApplication.run(VendasApplication.class, args);
 	}
 
+
+
 	
 
 }
